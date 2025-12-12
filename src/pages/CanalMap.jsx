@@ -13,7 +13,7 @@ function CanalMap() {
         <div className="canal-map-page">
             <h1 className="page-title">运河舆图</h1>
             <p className="page-description">
-                基于真实运河走向绘制的地图，点击城市地标可进入该城市的"航行密档"
+                基于运河走向绘制的示意图，点击城市地标可进入该城市的"航行密档"
             </p>
 
             <div className="map-container">
