@@ -22,18 +22,29 @@ function CanalMap() {
                     className="canal-map-svg"
                     preserveAspectRatio="xMidYMid meet"
                 >
-                    {/* 运河河道 */}
+                    {/* 运河河道 - 连接所有运河城市，流畅的曲线路径 */}
                     <path
-                        d="M 15 15 Q 17 17, 20 20 Q 25 25, 30 30 Q 32 35, 35 40 Q 40 45, 45 50 Q 50 55, 50 58 Q 52 60, 55 60 Q 58 62, 60 75"
+                        d="M 27 8 
+                           Q 32 12, 36 17 
+                           Q 31 26, 26 36 
+                           Q 32 45, 37 54 
+                           Q 44 58, 51 63 
+                           Q 55 69, 60 75 
+                           Q 58 83, 56 91"
                         fill="none"
                         stroke="#4a90e2"
                         strokeWidth="1.5"
                         strokeLinecap="round"
                         className="canal-path"
                     />
-                    {/* 长江河道 - 将扬州和苏州隔开的曲折横线 */}
+                    {/* 长江河道 - 经过南京和扬州，与扬州相交，将扬州和苏州隔开 */}
                     <path
-                        d="M 10 54 Q 25 52, 40 54 Q 50 56, 60 55 Q 70 54, 85 56"
+                        d="M 8 67 
+                           Q 20 67, 30 67 
+                           Q 33 67, 36 67 
+                           Q 43 65, 51 63 
+                           Q 55 68, 65 72 
+                           Q 75 74, 85 75"
                         fill="none"
                         stroke="#4a90e2"
                         strokeWidth="0.8"
