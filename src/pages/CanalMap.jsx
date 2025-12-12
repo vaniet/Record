@@ -43,8 +43,8 @@ function CanalMap() {
                            Q 20 67, 30 67 
                            Q 33 67, 36 67 
                            Q 43 65, 51 63 
-                           Q 55 68, 65 72 
-                           Q 75 74, 85 75"
+                           Q 58 60, 68 65 
+                           Q 75 68, 85 70"
                         fill="none"
                         stroke="#4a90e2"
                         strokeWidth="0.8"
@@ -68,9 +68,9 @@ function CanalMap() {
                                 style={{ cursor: 'pointer' }}
                             />
                             <text
-                                x={city.x}
-                                y={city.y - 6}
-                                textAnchor="middle"
+                                x={city.id === 'nanjing' ? city.x : city.x + 4}
+                                y={city.id === 'nanjing' ? city.y + 6 : (city.id === 'yangzhou' ? city.y - 2 : city.y)}
+                                textAnchor={city.id === 'nanjing' ? 'middle' : 'start'}
                                 fontSize="2.8"
                                 fill="#2c3e50"
                                 fontWeight="bold"
