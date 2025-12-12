@@ -49,7 +49,7 @@ function CanalMap() {
                         stroke="#4a90e2"
                         strokeWidth="0.8"
                         strokeLinecap="round"
-                        strokeDasharray="2,2"
+                        className="yangtze-path"
                         opacity="0.6"
                     />
 
