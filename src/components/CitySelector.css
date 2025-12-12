@@ -2,9 +2,6 @@
     background: rgba(245, 241, 232, 0.7);
     border-radius: 12px;
     padding: 2rem;
-    box-shadow:
-        0 4px 20px rgba(92, 58, 33, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.5);
     border: 1px solid rgba(139, 115, 85, 0.3);
     position: relative;
 }
@@ -34,26 +31,19 @@
 }
 
 .city-selection-card {
-    background: linear-gradient(135deg, #8b7355 0%, #6b5a42 100%);
+    background: #8b7355;
     color: #ffffff;
     padding: 2rem;
     border-radius: 12px;
     text-align: center;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow:
-        0 4px 15px rgba(92, 58, 33, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: background 0.3s ease;
     border: 1px solid rgba(139, 115, 85, 0.5);
     font-family: 'KaiTi', 'STKaiti', '楷体', serif;
 }
 
 .city-selection-card:hover {
-    transform: translateY(-5px);
-    box-shadow:
-        0 8px 25px rgba(92, 58, 33, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    background: linear-gradient(135deg, #9b8365 0%, #7b6a52 100%);
+    background: #9b8365;
 }
 
 .city-selection-icon {
@@ -66,14 +56,12 @@
     font-size: 1.8rem;
     font-weight: 600;
     color: #ffffff;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .city-selection-card p {
     margin: 0.5rem 0 0 0;
     color: rgba(255, 255, 255, 0.7);
     font-size: 0.95rem;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 768px) {
