@@ -46,11 +46,9 @@ function CanalMap() {
                            Q 58 60, 68 65 
                            Q 75 68, 85 70"
                         fill="none"
-                        stroke="#4a90e2"
                         strokeWidth="0.8"
                         strokeLinecap="round"
                         className="yangtze-path"
-                        opacity="0.6"
                     />
 
                     {/* 城市地标 */}

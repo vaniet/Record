@@ -92,20 +92,8 @@
 }
 
 .yangtze-path {
-    animation: yangtze-flow 3s ease-in-out 1;
-    stroke-dasharray: 2, 2;
-}
-
-@keyframes yangtze-flow {
-    0% {
-        stroke-dashoffset: 100;
-        opacity: 0.3;
-    }
-
-    100% {
-        stroke-dashoffset: 0;
-        opacity: 0.6;
-    }
+    animation: flow 3s ease-in-out 1;
+    stroke: #4a90e2;
 }
 
 .city-marker {
