@@ -8,6 +8,7 @@ function PassengerScroll() {
     const { city } = useParams()
     const navigate = useNavigate()
     const [selectedCharacter, setSelectedCharacter] = useState(null)
+    const [flippedCharacters, setFlippedCharacters] = useState({})
     const [viewMode, setViewMode] = useState('scroll') // 'scroll' or 'network'
 
     // 如果没有城市参数，显示城市选择界面
@@ -22,6 +23,21 @@ function PassengerScroll() {
     }
 
     const data = charactersData[city] || charactersData.default
+
+    const isNanjing = city === 'nanjing'
+
+    const handleCardClick = (character) => {
+        setSelectedCharacter(character)
+    }
+
+    const handleImageClick = (event, character) => {
+        // 仅翻转图片，不触发卡片点击的弹窗
+        event.stopPropagation()
+        setFlippedCharacters(prev => ({
+            ...prev,
+            [character.id]: !prev[character.id]
+        }))
+    }
 
     return (
         <div className="passenger-scroll-page">
@@ -48,11 +64,27 @@ function PassengerScroll() {
                         {data.characters.map((character, index) => (
                             <div
                                 key={character.id}
-                                className="character-card"
-                                onClick={() => setSelectedCharacter(character)}
+                                className={`character-card ${isNanjing ? 'nanjing-card' : ''}`}
+                                onClick={() => handleCardClick(character)}
                                 style={{ animationDelay: `${index * 0.1}s` }}
                             >
-                                <div className="character-image">{character.image}</div>
+                                {isNanjing && character.imageFront && character.imageBack ? (
+                                    <div
+                                        className={`character-image image-flip ${flippedCharacters[character.id] ? 'flipped' : ''}`}
+                                        onClick={(event) => handleImageClick(event, character)}
+                                    >
+                                        <div
+                                            className="image-face image-front"
+                                            style={{ backgroundImage: `url(${character.imageFront})` }}
+                                        />
+                                        <div
+                                            className="image-face image-back"
+                                            style={{ backgroundImage: `url(${character.imageBack})` }}
+                                        />
+                                    </div>
+                                ) : (
+                                    <div className="character-image">{character.image}</div>
+                                )}
                                 <div className="character-info">
                                     <h3>{character.name}</h3>
                                     <div className="character-role">{character.role}</div>
@@ -75,7 +107,16 @@ function PassengerScroll() {
                                 }}
                                 onClick={() => setSelectedCharacter(character)}
                             >
-                                <div className="node-image">{character.image}</div>
+                                <div className="node-image">
+                                    {isNanjing && character.imageFront ? (
+                                        <div
+                                            className="node-photo"
+                                            style={{ backgroundImage: `url(${character.imageFront})` }}
+                                        />
+                                    ) : (
+                                        character.image
+                                    )}
+                                </div>
                                 <div className="node-name">{character.name}</div>
                             </div>
                         ))}
@@ -124,25 +165,28 @@ function PassengerScroll() {
                 <div className="character-modal" onClick={() => setSelectedCharacter(null)}>
                     <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                         <button className="close-btn" onClick={() => setSelectedCharacter(null)}>×</button>
-                        <div className="modal-character-image">{selectedCharacter.image}</div>
+                        <div className="modal-character-image">
+                            {isNanjing && selectedCharacter.imageFront ? (
+                                <div
+                                    className={`modal-photo image-flip ${flippedCharacters[selectedCharacter.id] ? 'flipped' : ''}`}
+                                    onClick={(event) => handleImageClick(event, selectedCharacter)}
+                                >
+                                    <div
+                                        className="image-face image-front"
+                                        style={{ backgroundImage: `url(${selectedCharacter.imageFront})` }}
+                                    />
+                                    <div
+                                        className="image-face image-back"
+                                        style={{ backgroundImage: `url(${selectedCharacter.imageBack})` }}
+                                    />
+                                </div>
+                            ) : (
+                                selectedCharacter.image
+                            )}
+                        </div>
                         <h2>{selectedCharacter.name}</h2>
                         <div className="modal-character-role">{selectedCharacter.role}</div>
                         <p>{selectedCharacter.description}</p>
-                        <div className="modal-relationships">
-                            <h3>相关人物</h3>
-                            <div className="related-characters">
-                                {selectedCharacter.relationships.map((relId) => {
-                                    const related = data.characters.find(c => c.id === relId)
-                                    if (!related) return null
-                                    return (
-                                        <div key={relId} className="related-character">
-                                            <div className="related-image">{related.image}</div>
-                                            <div className="related-name">{related.name}</div>
-                                        </div>
-                                    )
-                                })}
-                            </div>
-                        </div>
                     </div>
                 </div>
             )}

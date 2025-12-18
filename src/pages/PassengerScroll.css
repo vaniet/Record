@@ -172,13 +172,60 @@
     margin-bottom: 1rem;
 }
 
+/* 南京渡客长卷：人物卡片翻转效果 */
+.nanjing-card .character-image {
+    font-size: 0;
+    /* 使用图片，不需要表情字号 */
+}
+
+.image-flip {
+    position: relative;
+    width: 220px;
+    height: 320px;
+    margin: 0 auto 1rem;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.image-face {
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    backface-visibility: hidden;
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+.image-front {
+    transform: rotateY(0deg);
+}
+
+.image-back {
+    transform: rotateY(180deg);
+}
+
+.image-flip.flipped .image-front {
+    transform: rotateY(-180deg);
+}
+
+.image-flip.flipped .image-back {
+    transform: rotateY(0deg);
+}
+
+.image-flip:hover .image-face {
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.24);
+}
+
 .character-info {
     text-align: center;
 }
 
 .character-info h3 {
     color: #5c3a21;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     margin: 0.5rem 0;
     font-family: 'KaiTi', 'STKaiti', '楷体', serif;
 }
@@ -189,7 +236,7 @@
     color: #f5f1e8;
     padding: 0.3rem 1rem;
     border-radius: 20px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     margin-bottom: 1rem;
     font-family: 'KaiTi', 'STKaiti', '楷体', serif;
 }
@@ -198,6 +245,12 @@
     color: #6b5a42;
     line-height: 1.8;
     margin-top: 1rem;
+    font-size: 1.05rem;
+}
+
+/* 暂时隐藏：人物卡片（人物图册）中，图片下方的文字介绍（描述段落） */
+.character-card .character-info p {
+    display: none;
 }
 
 .network-container {
@@ -242,8 +295,18 @@
     margin-bottom: 0.5rem;
 }
 
+.node-photo {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
 .node-name {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #5c3a21;
     font-weight: 500;
     text-align: center;
@@ -312,6 +375,13 @@
     text-align: center;
     margin: 1rem 0;
 }
+
+.modal-photo {
+    width: 260px;
+    height: 380px;
+    margin: 0 auto;
+}
+
 
 .modal-content h2 {
     text-align: center;

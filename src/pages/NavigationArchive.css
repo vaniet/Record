@@ -85,6 +85,9 @@
     transition: border-color 0.3s ease;
     position: relative;
     border: 1px solid rgba(139, 115, 85, 0.3);
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
 }
 
 .entry-card:hover {
@@ -103,7 +106,7 @@
     color: #f5f1e8;
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
-    font-size: 0.85rem;
+    font-size: 1rem;
     margin-bottom: 0.8rem;
     font-family: 'KaiTi', 'STKaiti', '楷体', serif;
 }
@@ -111,7 +114,7 @@
 .entry-card h3 {
     color: #5c3a21;
     margin: 0.5rem 0;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-family: 'KaiTi', 'STKaiti', '楷体', serif;
 }
 
@@ -119,6 +122,8 @@
     color: #6b5a42;
     line-height: 1.8;
     margin-bottom: 1rem;
+    font-size: 1.05rem;
+    flex-grow: 1;
 }
 
 .audio-placeholder {
@@ -127,8 +132,9 @@
     border-radius: 8px;
     text-align: center;
     color: #8b4513;
-    font-size: 0.9rem;
+    font-size: 1rem;
     border: 1px solid rgba(139, 115, 85, 0.2);
+    margin-top: auto;
 }
 
 .research-section {
@@ -157,7 +163,7 @@
     color: #f5f1e8;
     border: 1px solid rgba(139, 115, 85, 0.5);
     border-radius: 6px;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -170,7 +176,7 @@
 
 
 .toggle-icon {
-    font-size: 0.9rem;
+    font-size: 1rem;
     transition: transform 0.3s ease;
     display: inline-block;
     line-height: 1;
@@ -195,23 +201,23 @@
 }
 
 .research-card {
-    background: linear-gradient(135deg, #8b7355 0%, #6b5a42 100%);
-    color: #f5f1e8;
+    background: rgba(139, 115, 85, 0.15);
+    color: #5c3a21;
     padding: 2rem;
     border-radius: 12px;
-    border: 1px solid rgba(139, 115, 85, 0.5);
+    border: 1px solid rgba(139, 115, 85, 0.3);
 }
 
 .research-card h3 {
     margin-top: 0;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     margin-bottom: 1rem;
     font-family: 'KaiTi', 'STKaiti', '楷体', serif;
 }
 
 .research-card p {
     line-height: 1.8;
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     opacity: 0.95;
 }
 
@@ -274,7 +280,7 @@
     color: #f5f1e8;
     padding: 0.4rem 1rem;
     border-radius: 20px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     margin-bottom: 1rem;
     font-family: 'KaiTi', 'STKaiti', '楷体', serif;
 }
@@ -289,7 +295,7 @@
 .modal-content p {
     color: #6b5a42;
     line-height: 1.8;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     margin-bottom: 1.5rem;
 }
 
