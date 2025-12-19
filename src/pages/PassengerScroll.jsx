@@ -361,7 +361,6 @@ function PassengerScroll() {
                         </div>
                         <h2>{selectedCharacter.name}</h2>
                         <div className="modal-character-role">{selectedCharacter.role}</div>
-                        <p>{selectedCharacter.description}</p>
                     </div>
                 </div>
             )}
