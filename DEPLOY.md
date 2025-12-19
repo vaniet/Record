@@ -59,3 +59,49 @@ npm run preview
 - 生产环境的 base 路径为 `/Record/`，开发环境为 `/`
 - 如果仓库名称不是 `Record`，需要修改 `vite.config.js` 中的 `base` 配置
 
+## 故障排除
+
+### 问题：页面显示空白
+
+如果部署后页面显示空白，请按以下步骤排查：
+
+1. **检查仓库名称**
+   - 确认 GitHub 仓库名称是否为 `Record`
+   - 如果不同，修改 `vite.config.js` 中的 `base` 路径为 `/[你的仓库名]/`
+
+2. **检查 GitHub Actions 部署状态**
+   - 进入仓库的 Actions 标签页
+   - 确认最新的 workflow 运行是否成功（显示绿色 ✓）
+   - 如果失败，查看错误日志
+
+3. **检查 GitHub Pages 设置**
+   - 进入仓库 Settings > Pages
+   - 确认 Source 选择的是 `gh-pages` 分支
+   - 确认分支已正确部署
+
+4. **检查浏览器控制台**
+   - 按 F12 打开开发者工具
+   - 查看 Console 标签是否有 JavaScript 错误
+   - 查看 Network 标签，确认资源文件（.js, .css）是否正确加载（状态码应为 200）
+   - 如果资源文件返回 404，可能是 base 路径配置错误
+
+5. **清除浏览器缓存**
+   - 按 Ctrl+Shift+R（Windows）或 Cmd+Shift+R（Mac）强制刷新页面
+   - 或者在浏览器设置中清除缓存
+
+6. **本地预览生产构建**
+   ```bash
+   npm run build
+   npm run preview
+   ```
+   在本地预览生产版本，确认构建是否有问题
+
+7. **验证构建输出**
+   - 检查 `dist/index.html` 中的资源路径是否包含 `/Record/` 前缀
+   - 例如：`<script src="/Record/assets/index-xxx.js"></script>`
+
+8. **重新部署**
+   - 如果问题持续，可以尝试重新触发部署：
+     - 在 Actions 页面，点击失败的 workflow，选择 "Re-run jobs"
+     - 或者推送一个空提交：`git commit --allow-empty -m "Trigger rebuild" && git push`
+
